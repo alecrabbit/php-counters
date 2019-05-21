@@ -19,4 +19,13 @@ abstract class AbstractReport
         }
         return 'no formatter set';
     }
+
+    /**
+     * @return null|FormatterInterface
+     */
+    public function getFormatter(): ?FormatterInterface
+    {
+        return $this->formatter;
+    }
+
 }
