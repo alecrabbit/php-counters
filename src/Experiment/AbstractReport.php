@@ -27,5 +27,4 @@ abstract class AbstractReport
     {
         return $this->formatter;
     }
-
 }

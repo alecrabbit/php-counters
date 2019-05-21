@@ -13,7 +13,7 @@ class AbstractCounter extends AbstractReportable
     {
         $this->defaultReportClass = $reportClass ?? DefaultReport::class;
         $this->defaultFormatterClass = $formatterClass ?? DefaultFormatter::class;
-        $this->setDependencies($this->defaultReportClass, FormatterInterface::class , $this->defaultFormatterClass);
+        $this->setDependencies($this->defaultReportClass, FormatterInterface::class, $this->defaultFormatterClass);
     }
 
     public function report(): AbstractCounterReport
