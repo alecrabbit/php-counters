@@ -20,6 +20,6 @@ $container
 
 $counter= new SimpleCounter();
 $extendedCounter= new ExtendedCounter();
-$extendedCounter->setFormatterClass(HtmlExtendedCounterReportFormatter::class);
+$extendedCounter->setFormatter(HtmlExtendedCounterReportFormatter::class);
 dump((string)$counter->report());
 dump((string)$extendedCounter->report());

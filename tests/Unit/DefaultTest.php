@@ -9,6 +9,7 @@ use AlecRabbit\Experiment\HtmlExtendedCounterReportFormatter;
 use AlecRabbit\Experiment\HtmlSimpleCounterReportFormatter;
 use AlecRabbit\Experiment\SimpleCounter;
 use AlecRabbit\Experiment\SimpleCounterReport;
+use AlecRabbit\Experiment\SimpleCounterReportFormatter;
 use Illuminate\Container\Container;
 use PHPUnit\Framework\TestCase;
 
@@ -29,11 +30,8 @@ class DefaultTest extends TestCase
         $this->assertInstanceOf(ExtendedCounterReportFormatter::class, $extendedCounterReport->getFormatter());
         $this->assertInstanceOf(ExtendedCounter::class, $extendedCounterReport->getCounter());
 
-        $this->assertSame('AlecRabbit\Experiment\SimpleCounterReportFormatter', (string)$counterReport);
-        $this->assertSame(
-            'AlecRabbit\Experiment\ExtendedCounterReportFormatter',
-            (string)$extendedCounterReport
-        );
+        $this->assertSame(SimpleCounterReportFormatter::class, (string)$counterReport);
+        $this->assertSame(ExtendedCounterReportFormatter::class, (string)$extendedCounterReport);
     }
 
     /** @test */
@@ -57,12 +55,10 @@ class DefaultTest extends TestCase
         $this->assertInstanceOf(HtmlExtendedCounterReportFormatter::class, $extendedCounterReport->getFormatter());
         $this->assertInstanceOf(ExtendedCounter::class, $extendedCounterReport->getCounter());
 
-        $this->assertSame('AlecRabbit\Experiment\SimpleCounterReportFormatter', (string)$counterReport);
-        $this->assertSame(
-            '<b>AlecRabbit\Experiment\HtmlExtendedCounterReportFormatter</b>',
-            (string)$extendedCounterReport
-        );
+        $this->assertSame(SimpleCounterReportFormatter::class, (string)$counterReport);
+        $this->assertSame('<b>' . HtmlExtendedCounterReportFormatter::class . '</b>', (string)$extendedCounterReport);
     }
+
     /** @test */
     public function third(): void
     {
@@ -81,12 +77,10 @@ class DefaultTest extends TestCase
         $this->assertInstanceOf(HtmlExtendedCounterReportFormatter::class, $extendedCounterReport->getFormatter());
         $this->assertInstanceOf(ExtendedCounter::class, $extendedCounterReport->getCounter());
 
-        $this->assertSame('AlecRabbit\Experiment\SimpleCounterReportFormatter', (string)$counterReport);
-        $this->assertSame(
-            '<b>AlecRabbit\Experiment\HtmlExtendedCounterReportFormatter</b>',
-            (string)$extendedCounterReport
-        );
+        $this->assertSame(SimpleCounterReportFormatter::class, (string)$counterReport);
+        $this->assertSame('<b>' . HtmlExtendedCounterReportFormatter::class . '</b>', (string)$extendedCounterReport);
     }
+
     /** @test */
     public function fours(): void
     {
@@ -107,13 +101,7 @@ class DefaultTest extends TestCase
         $this->assertInstanceOf(ExtendedCounter::class, $extendedCounterReport->getCounter());
         $this->assertInstanceOf(SimpleCounter::class, $counterReport->getCounter());
 
-        $this->assertSame(
-            '<b>AlecRabbit\Experiment\HtmlSimpleCounterReportFormatter</b>',
-            (string)$counterReport
-        );
-        $this->assertSame(
-            '<b>AlecRabbit\Experiment\HtmlExtendedCounterReportFormatter</b>',
-            (string)$extendedCounterReport
-        );
+        $this->assertSame('<b>' . HtmlSimpleCounterReportFormatter::class . '</b>', (string)$counterReport);
+        $this->assertSame('<b>' . HtmlExtendedCounterReportFormatter::class . '</b>', (string)$extendedCounterReport);
     }
 }
