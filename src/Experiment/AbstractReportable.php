@@ -2,6 +2,6 @@
 
 namespace AlecRabbit\Experiment;
 
-class SimpleCounterReport extends AbstractCounterReport
+class AbstractReportable
 {
 }

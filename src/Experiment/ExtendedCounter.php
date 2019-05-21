@@ -2,20 +2,13 @@
 
 namespace AlecRabbit\Experiment;
 
-use Illuminate\Container\Container;
-
 class ExtendedCounter extends AbstractCounter
 {
-    public function __construct(string $formatterClass = null, string $reportClass = null)
+    public function __construct(string $reportClass = null, string $formatterClass = null)
     {
-        parent::__construct();
-        $this->defaultFormatterClass = $formatterClass ?? ExtendedCounterReportFormatter::class;
-        $this->defaultReportClass = $reportClass ?? ExtendedCounterReport::class;
+        parent::__construct(
+            $reportClass ?? ExtendedCounterReport::class,
+            $formatterClass ?? ExtendedCounterReportFormatter::class
+        );
     }
-
-    public function report(): AbstractReport
-    {
-        return Container::getInstance()->make(ExtendedCounterReport::class, ['counter' => $this]);
-    }
-
 }

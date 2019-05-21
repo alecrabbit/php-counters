@@ -4,15 +4,21 @@ namespace AlecRabbit\Experiment;
 
 use Illuminate\Container\Container;
 
-class AbstractCounter
+class AbstractCounter extends AbstractReportable
 {
     protected $defaultFormatterClass;
     protected $defaultReportClass;
 
-    public function __construct(string $formatterClass = null, string $reportClass = null)
+    public function __construct(string $reportClass = null, string $formatterClass = null)
     {
-        $this->defaultFormatterClass = $formatterClass ?? DefaultFormatter::class;
         $this->defaultReportClass = $reportClass ?? DefaultReport::class;
+        $this->defaultFormatterClass = $formatterClass ?? DefaultFormatter::class;
+        $this->setDependencies($this->defaultReportClass, FormatterInterface::class , $this->defaultFormatterClass);
+    }
+
+    public function report(): AbstractReport
+    {
+        return Container::getInstance()->make($this->defaultReportClass, ['counter' => $this]);
     }
 
     /**
@@ -20,7 +26,7 @@ class AbstractCounter
      */
     public function setFormatter($formatter): void
     {
-        $this->setDependencies($this->defaultReportClass, $this->defaultFormatterClass, $formatter);
+        $this->setDependencies($this->defaultReportClass, FormatterInterface::class, $formatter);
     }
 
     /**
@@ -35,7 +41,7 @@ class AbstractCounter
                 return $give;
             };
         }
-        dump($when, $needs, $give);
+//        dump($when, $needs, $give);
         Container::getInstance()
             ->when($when)
             ->needs($needs)

@@ -2,12 +2,13 @@
 
 namespace AlecRabbit\Experiment;
 
-use Illuminate\Container\Container;
-
 class SimpleCounter extends AbstractCounter
 {
-    public function report(): AbstractReport
+    public function __construct(string $reportClass = null, string $formatterClass = null)
     {
-        return Container::getInstance()->make(SimpleCounterReport::class);
+        parent::__construct(
+            $reportClass ?? SimpleCounterReport::class,
+            $formatterClass ?? SimpleCounterReportFormatter::class
+        );
     }
 }
