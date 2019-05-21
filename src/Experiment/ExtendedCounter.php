@@ -8,6 +8,6 @@ class ExtendedCounter
 {
     public function report(): AbstractReport
     {
-        return Container::getInstance()->make(ExtendedCounterReport::class);
+        return Container::getInstance()->make(ExtendedCounterReport::class, ['counter' => $this]);
     }
 }

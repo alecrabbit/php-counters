@@ -7,10 +7,12 @@ class ExtendedCounterReport extends AbstractReport
     /**
      * SimpleCounterReport constructor.
      * @param ExtendedCounterReportFormatter $formatter
+     * @param $counter
      */
-    public function __construct(ExtendedCounterReportFormatter $formatter)
+    public function __construct(ExtendedCounterReportFormatter $formatter, $counter)
     {
-        parent::__construct($formatter);
+        dump($counter);
+        parent::__construct();
         $this->formatter = $formatter;
     }
 }

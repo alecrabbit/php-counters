@@ -4,16 +4,19 @@ namespace AlecRabbit\Experiment;
 
 abstract class AbstractReport
 {
-    /** @var FormatterInterface */
+    /** @var null|FormatterInterface */
     protected $formatter;
 
-    public function __construct(FormatterInterface $formatter)
+    public function __construct(FormatterInterface $formatter = null)
     {
         $this->formatter = $formatter;
     }
 
     public function __toString()
     {
-        return $this->formatter->format();
+        if ($this->formatter instanceof FormatterInterface) {
+            return $this->formatter->format();
+        }
+        return 'no formatter set';
     }
 }
