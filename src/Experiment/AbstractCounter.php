@@ -16,7 +16,7 @@ class AbstractCounter extends AbstractReportable
         $this->setDependencies($this->defaultReportClass, FormatterInterface::class , $this->defaultFormatterClass);
     }
 
-    public function report(): AbstractReport
+    public function report(): AbstractCounterReport
     {
         return Container::getInstance()->make($this->defaultReportClass, ['counter' => $this]);
     }

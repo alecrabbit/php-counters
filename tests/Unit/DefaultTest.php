@@ -105,6 +105,7 @@ class DefaultTest extends TestCase
 
         $this->assertInstanceOf(HtmlExtendedCounterReportFormatter::class, $extendedCounterReport->getFormatter());
         $this->assertInstanceOf(ExtendedCounter::class, $extendedCounterReport->getCounter());
+        $this->assertInstanceOf(SimpleCounter::class, $counterReport->getCounter());
 
         $this->assertSame(
             '<b>AlecRabbit\Experiment\HtmlSimpleCounterReportFormatter</b>',
