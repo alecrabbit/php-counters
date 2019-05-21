@@ -62,4 +62,28 @@ class DefaultTest extends TestCase
             (string)$extendedCounterReport
         );
     }
+    /** @test */
+    public function third(): void
+    {
+        Container::setInstance();
+        $counter = new SimpleCounter();
+        $extendedCounter = new ExtendedCounter();
+        $extendedCounter->setFormatter(HtmlExtendedCounterReportFormatter::class);
+
+        $this->assertInstanceOf(SimpleCounter::class, $counter);
+        $this->assertInstanceOf(ExtendedCounter::class, $extendedCounter);
+        $counterReport = $counter->report();
+        $extendedCounterReport = $extendedCounter->report();
+        $this->assertInstanceOf(SimpleCounterReport::class, $counterReport);
+        $this->assertInstanceOf(ExtendedCounterReport::class, $extendedCounterReport);
+
+        $this->assertInstanceOf(HtmlExtendedCounterReportFormatter::class, $extendedCounterReport->getFormatter());
+        $this->assertInstanceOf(ExtendedCounter::class, $extendedCounterReport->getCounter());
+
+        $this->assertSame('AlecRabbit\Experiment\SimpleCounterReportFormatter', (string)$counterReport);
+        $this->assertSame(
+            '<b>AlecRabbit\Experiment\HtmlExtendedCounterReportFormatter</b>',
+            (string)$extendedCounterReport
+        );
+    }
 }

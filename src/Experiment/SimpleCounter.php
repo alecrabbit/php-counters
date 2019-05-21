@@ -4,7 +4,7 @@ namespace AlecRabbit\Experiment;
 
 use Illuminate\Container\Container;
 
-class SimpleCounter
+class SimpleCounter extends AbstractCounter
 {
     public function report(): AbstractReport
     {
