@@ -13,7 +13,7 @@ use AlecRabbit\Reports\SimpleCounterReport;
 use Illuminate\Container\Container;
 use PHPUnit\Framework\TestCase;
 
-class DefaultTest extends TestCase
+class BindingTest extends TestCase
 {
     /** @test */
     public function first(): void
@@ -82,7 +82,7 @@ class DefaultTest extends TestCase
     }
 
     /** @test */
-    public function third_alpha(): void
+    public function thirdAlpha(): void
     {
         Container::setInstance();
         $counter = new SimpleCounter();

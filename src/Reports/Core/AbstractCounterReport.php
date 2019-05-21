@@ -7,6 +7,7 @@ use AlecRabbit\Formatters\Contracts\FormatterInterface;
 
 abstract class AbstractCounterReport extends AbstractReport
 {
+    /** @var AbstractCounter */
     protected $counter;
 
     /**

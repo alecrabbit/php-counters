@@ -3,6 +3,7 @@
 namespace AlecRabbit\Counters\Core;
 
 use AlecRabbit\Formatters\Contracts\FormatterInterface;
+use AlecRabbit\Formatters\Core\AbstractFormatter;
 use AlecRabbit\Formatters\DefaultFormatter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
@@ -11,29 +12,25 @@ use Illuminate\Container\Container;
 
 abstract class AbstractCounter extends AbstractReportable
 {
-    protected $defaultFormatterClass;
-    protected $defaultReportClass;
-
     public function __construct(string $reportClass = null, string $formatterClass = null)
     {
-        $this->defaultReportClass = $reportClass ?? DefaultReport::class;
-        $this->defaultFormatterClass = $formatterClass ?? DefaultFormatter::class;
-        $this->setDependencies($this->defaultReportClass, FormatterInterface::class, $this->defaultFormatterClass);
+        $this->reportClass = $reportClass ?? DefaultReport::class;
+        $this->formatterClass = $formatterClass ?? DefaultFormatter::class;
+        $this->setDependencies($this->reportClass, FormatterInterface::class, $this->formatterClass);
     }
 
     /**
      * @param string $when
      * @param string $needs
-     * @param object|string $give
+     * @param AbstractFormatter|string|\Closure $give
      */
     protected function setDependencies(string $when, string $needs, $give): void
     {
-        if (is_object($give)) {
-            $give = static function () use ($give) {
+        if ($give instanceof AbstractFormatter) {
+            $give = static function () use ($give): AbstractFormatter {
                 return $give;
             };
         }
-//        dump($when, $needs, $give);
         Container::getInstance()
             ->when($when)
             ->needs($needs)
@@ -42,18 +39,18 @@ abstract class AbstractCounter extends AbstractReportable
 
     public function report(): AbstractCounterReport
     {
-        return Container::getInstance()->make($this->defaultReportClass, ['counter' => $this]);
+        return Container::getInstance()->make($this->reportClass, ['counter' => $this]);
     }
 
     /**
-     * @param string|\AlecRabbit\Formatters\Contracts\FormatterInterface $formatter
+     * @param AbstractFormatter|string|\Closure $formatter
      */
     public function setFormatter($formatter): void
     {
-        $this->setDependencies($this->defaultReportClass, FormatterInterface::class, $formatter);
+        $this->setDependencies($this->reportClass, FormatterInterface::class, $formatter);
     }
 
-    protected function setDefaultDependenciesBindings(string $reportClass = null, string $formatterClass = null): void
+    protected function setDefaultBindings(string $reportClass = null, string $formatterClass = null): void
     {
         $this->setDependencies(
             $reportClass ?? DefaultReport::class,
