@@ -2,12 +2,14 @@
 
 namespace AlecRabbit\Tests\Experiment\Unit;
 
+use AlecRabbit\Counters\Core\AbstractCounter;
 use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Counters\SimpleCounter;
 use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
 use AlecRabbit\Formatters\HtmlExtendedCounterReportFormatter;
 use AlecRabbit\Formatters\HtmlSimpleCounterReportFormatter;
 use AlecRabbit\Formatters\SimpleCounterReportFormatter;
+use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\ExtendedCounterReport;
 use AlecRabbit\Reports\SimpleCounterReport;
 use Illuminate\Container\Container;
@@ -15,24 +17,38 @@ use PHPUnit\Framework\TestCase;
 
 class BindingTest extends TestCase
 {
-    /** @test */
-    public function first(): void
+    /**
+     * @test
+     * @dataProvider instancesDataProvider
+     * @param array $values
+     */
+    public function instance(array $values): void
     {
-        $counter = new SimpleCounter();
-        $extendedCounter = new ExtendedCounter();
-        $this->assertInstanceOf(SimpleCounter::class, $counter);
-        $this->assertInstanceOf(ExtendedCounter::class, $extendedCounter);
+        [$resetContainer, $counterClass, $reportClass, $formatterClass] = $values;
+        if ($resetContainer) {
+            Container::setInstance();
+        }
+        $counter = new $counterClass();
+        /** @var AbstractCounter $counter */
         $counterReport = $counter->report();
-        $extendedCounterReport = $extendedCounter->report();
-        $this->assertInstanceOf(SimpleCounterReport::class, $counterReport);
-        $this->assertInstanceOf(ExtendedCounterReport::class, $extendedCounterReport);
-
-        $this->assertInstanceOf(ExtendedCounterReportFormatter::class, $extendedCounterReport->getFormatter());
-        $this->assertInstanceOf(ExtendedCounter::class, $extendedCounterReport->getCounter());
-
-        $this->assertSame(SimpleCounterReportFormatter::class, (string)$counterReport);
-        $this->assertSame(ExtendedCounterReportFormatter::class, (string)$extendedCounterReport);
+        $this->assertInstanceOf($counterClass, $counter);
+        /** @noinspection UnnecessaryAssertionInspection */
+        $this->assertInstanceOf($reportClass, $counterReport);
+        /** @var AbstractCounterReport $counterReport */
+        $this->assertInstanceOf($counterClass, $counterReport->getCounter());
+        $this->assertSame($formatterClass, (string)$counterReport);
     }
+
+    public function instancesDataProvider(): array
+    {
+        return [
+            [
+                [false, SimpleCounter::class, SimpleCounterReport::class, SimpleCounterReportFormatter::class],
+                [false, ExtendedCounter::class, ExtendedCounterReport::class, ExtendedCounterReportFormatter::class],
+            ],
+        ];
+    }
+
 
     /** @test */
     public function second(): void
