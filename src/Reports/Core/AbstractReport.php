@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace AlecRabbit\Experiment;
+namespace AlecRabbit\Reports\Core;
+
+use AlecRabbit\Formatters\Contracts\FormatterInterface;
 
 abstract class AbstractReport
 {

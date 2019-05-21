@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace AlecRabbit\Experiment;
+namespace AlecRabbit\Formatters\Contracts;
 
 interface FormatterInterface
 {

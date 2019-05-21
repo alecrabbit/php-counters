@@ -14,7 +14,9 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "AlecRabbit\\Experiment\\": "src\\Experiment"
+      "AlecRabbit\\Counters\\": "src\\Counters",
+      "AlecRabbit\\Formatters\\": "src\\Formatters",
+      "AlecRabbit\\Reports\\": "src\\Reports"
     }
   },
   "autoload-dev": {

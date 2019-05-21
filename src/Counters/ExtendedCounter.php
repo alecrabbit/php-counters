@@ -1,6 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace AlecRabbit\Experiment;
+namespace AlecRabbit\Counters;
+
+use AlecRabbit\Counters\Core\AbstractCounter;
+use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
+use AlecRabbit\Reports\ExtendedCounterReport;
 
 class ExtendedCounter extends AbstractCounter
 {

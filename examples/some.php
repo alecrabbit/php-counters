@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-use AlecRabbit\Experiment\ExtendedCounter;
-use AlecRabbit\Experiment\ExtendedCounterReport;
-use AlecRabbit\Experiment\ExtendedCounterReportFormatter;
-use AlecRabbit\Experiment\HtmlExtendedCounterReportFormatter;
-use AlecRabbit\Experiment\SimpleCounter;
+use AlecRabbit\Counters\ExtendedCounter;
+use AlecRabbit\Counters\SimpleCounter;
+use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
+use AlecRabbit\Formatters\HtmlExtendedCounterReportFormatter;
+use AlecRabbit\Reports\ExtendedCounterReport;
 use Illuminate\Container\Container;
 use NunoMaduro\Collision\Provider;
 

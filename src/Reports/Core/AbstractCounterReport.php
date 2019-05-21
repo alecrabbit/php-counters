@@ -1,8 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace AlecRabbit\Experiment;
+namespace AlecRabbit\Reports\Core;
 
-class AbstractCounterReport extends AbstractReport
+use AlecRabbit\Counters\Core\AbstractCounter;
+use AlecRabbit\Formatters\Contracts\FormatterInterface;
+
+abstract class AbstractCounterReport extends AbstractReport
 {
     protected $counter;
 

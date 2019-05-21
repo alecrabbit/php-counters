@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace AlecRabbit\Experiment;
+namespace AlecRabbit\Formatters;
+
+use AlecRabbit\Formatters\Core\AbstractFormatter;
 
 class ExtendedCounterReportFormatter extends AbstractFormatter
 {
