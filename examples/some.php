@@ -12,11 +12,11 @@ require_once __DIR__ . '/../tests/bootstrap.php';
 
 (new Provider)->register();
 
-$container = Container::getInstance();
-$container
-    ->when(ExtendedCounterReport::class)
-    ->needs(ExtendedCounterReportFormatter::class)
-    ->give(ColoredExtendedCounterReportFormatter::class);
+//$container = Container::getInstance();
+//$container
+//    ->when(ExtendedCounterReport::class)
+//    ->needs(ExtendedCounterReportFormatter::class)
+//    ->give(ColoredExtendedCounterReportFormatter::class);
 
 $counter= new SimpleCounter();
 $extendedCounter= new ExtendedCounter();

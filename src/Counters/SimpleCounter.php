@@ -14,6 +14,7 @@ class SimpleCounter extends AbstractCounter
         parent::__construct($name, $step, $initialValue);
         $this->setBindings(
             SimpleCounterReport::class,
-            SimpleCounterReportFormatter::class);
+            SimpleCounterReportFormatter::class
+        );
     }
 }

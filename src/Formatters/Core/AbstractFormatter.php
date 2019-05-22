@@ -6,9 +6,13 @@ use AlecRabbit\Formatters\Contracts\FormatterInterface;
 
 abstract class AbstractFormatter implements FormatterInterface
 {
+    /** @var int */
+    protected $options;
+
     /** {@inheritDoc} */
     public function __construct(?int $options = null)
     {
+        $this->options = $options ?? 0;
     }
 
     /** {@inheritDoc} */

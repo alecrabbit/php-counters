@@ -2,6 +2,6 @@
 
 namespace AlecRabbit\Formatters;
 
-class ColoredExtendedCounterReportFormatter extends ExtendedCounterReportFormatter
+class ColoredExtendedCounterReportFormatter extends ColoredSimpleCounterReportFormatter
 {
 }

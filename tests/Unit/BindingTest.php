@@ -5,14 +5,15 @@ namespace AlecRabbit\Tests\Experiment\Unit;
 use AlecRabbit\Counters\Core\AbstractCounter;
 use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Counters\SimpleCounter;
-use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
 use AlecRabbit\Formatters\ColoredExtendedCounterReportFormatter;
 use AlecRabbit\Formatters\ColoredSimpleCounterReportFormatter;
+use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
 use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\ExtendedCounterReport;
 use AlecRabbit\Reports\SimpleCounterReport;
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use PHPUnit\Framework\TestCase;
 
 class BindingTest extends TestCase
@@ -21,34 +22,75 @@ class BindingTest extends TestCase
      * @test
      * @dataProvider instancesDataProvider
      * @param array $values
+     * @throws BindingResolutionException
      */
     public function instance(array $values): void
     {
-        [$resetContainer, $counterClass, $reportClass, $formatterClass] = $values;
+        [
+            $resetContainer,
+            $counterClass,
+            $reportClass,
+            $formatterClass,
+            $result
+        ] = $values;
         if ($resetContainer) {
             Container::setInstance();
         }
         $counter = new $counterClass();
         /** @var AbstractCounter $counter */
+        $counter->setFormatter($formatterClass);
         $counterReport = $counter->report();
         $this->assertInstanceOf($counterClass, $counter);
         /** @noinspection UnnecessaryAssertionInspection */
         $this->assertInstanceOf($reportClass, $counterReport);
         /** @var AbstractCounterReport $counterReport */
-        $this->assertInstanceOf($counterClass, $counterReport->getCounter());
-        $this->assertSame($reportClass, (string)$counterReport);
+        $this->assertInstanceOf($counterClass, $counterReport->getReportable());
+        $str = (string)$counterReport;
+        $this->assertSame($result, $str);
+//        dump($result, $str);
     }
 
     public function instancesDataProvider(): array
     {
         return [
             [
-                [false, SimpleCounter::class, SimpleCounterReport::class, SimpleCounterReportFormatter::class],
-                [false, ExtendedCounter::class, ExtendedCounterReport::class, ExtendedCounterReportFormatter::class],
+                [
+                    false,
+                    SimpleCounter::class,
+                    SimpleCounterReport::class,
+                    SimpleCounterReportFormatter::class,
+                    SimpleCounterReport::class,
+                ],
+            ],
+            [
+                [
+                    false,
+                    ExtendedCounter::class,
+                    ExtendedCounterReport::class,
+                    ExtendedCounterReportFormatter::class,
+                    ExtendedCounterReport::class,
+                ],
+            ],
+            [
+                [
+                    false,
+                    SimpleCounter::class,
+                    SimpleCounterReport::class,
+                    ColoredSimpleCounterReportFormatter::class,
+                    'colored:' . SimpleCounterReport::class,
+                ],
+            ],
+            [
+                [
+                    false,
+                    ExtendedCounter::class,
+                    ExtendedCounterReport::class,
+                    ColoredExtendedCounterReportFormatter::class,
+                    'colored:' . ExtendedCounterReport::class,
+                ],
             ],
         ];
     }
-
 
 //    /** @test */
 //    public function second(): void

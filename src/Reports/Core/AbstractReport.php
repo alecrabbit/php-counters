@@ -9,10 +9,22 @@ abstract class AbstractReport extends Formattable
 {
     /** @var null|FormatterInterface */
     protected $formatter;
+    /** @var array */
+    protected $data;
 
-    public function __construct(FormatterInterface $formatter = null)
+    public function __construct(FormatterInterface $formatter = null, AbstractReportable $reportable = null)
     {
         $this->formatter = $formatter;
+        $this->data = $this->extractDataFrom($reportable);
+    }
+
+    /**
+     * @param AbstractReportable $reportable
+     * @return array
+     */
+    protected function extractDataFrom(AbstractReportable $reportable = null): array
+    {
+        return [];
     }
 
     public function __toString()

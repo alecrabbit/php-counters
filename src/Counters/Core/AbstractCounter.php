@@ -103,9 +103,4 @@ abstract class AbstractCounter extends AbstractReportable
         }
         return $times;
     }
-
-    public function report(): AbstractCounterReport
-    {
-        return Container::getInstance()->make($this->reportClass, ['counter' => $this]);
-    }
 }

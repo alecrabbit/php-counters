@@ -85,5 +85,4 @@ class ExtendedCounter extends SimpleCounter
     {
         $this->value = $this->initialValue = $this->length = $this->max = $this->min = $initialValue;
     }
-
 }

@@ -8,24 +8,24 @@ use AlecRabbit\Formatters\Contracts\FormatterInterface;
 abstract class AbstractCounterReport extends AbstractReport
 {
     /** @var AbstractCounter */
-    protected $counter;
+    protected $reportable;
 
     /**
      * AbstractCounterReport constructor.
      * @param FormatterInterface $formatter
-     * @param AbstractCounter $counter
+     * @param AbstractCounter $reportable
      */
-    public function __construct(FormatterInterface $formatter, AbstractCounter $counter)
+    public function __construct(FormatterInterface $formatter, AbstractCounter $reportable)
     {
-        $this->counter = $counter;
-        parent::__construct($formatter);
+        $this->reportable = $reportable;
+        parent::__construct($formatter, $reportable);
     }
 
     /**
      * @return mixed
      */
-    public function getCounter()
+    public function getReportable()
     {
-        return $this->counter;
+        return $this->reportable;
     }
 }

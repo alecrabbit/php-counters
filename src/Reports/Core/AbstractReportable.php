@@ -7,6 +7,7 @@ use AlecRabbit\Formatters\Core\AbstractFormatter;
 use AlecRabbit\Formatters\DefaultFormatter;
 use AlecRabbit\Reports\DefaultReport;
 use Illuminate\Container\Container;
+use Illuminate\Contracts\Container\BindingResolutionException;
 
 abstract class AbstractReportable
 {
@@ -57,8 +58,15 @@ abstract class AbstractReportable
             ->give($formatter);
     }
 
+    /**
+     * @noinspection ReturnTypeCanBeDeclaredInspection
+     *
+     * @return AbstractReport
+     * @throws BindingResolutionException
+     *
+     */
     public function report()
     {
-        return Container::getInstance()->make($this->reportClass);
+        return Container::getInstance()->make($this->reportClass, ['reportable' => $this]);
     }
 }
