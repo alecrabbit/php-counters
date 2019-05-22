@@ -4,8 +4,70 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fa826bc55a91247ff0c6db2feccac06",
+    "content-hash": "c70d3c9284b7cd1d2e2b15147258c9c0",
     "packages": [
+        {
+            "name": "alecrabbit/php-helpers",
+            "version": "0.5.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-helpers.git",
+                "reference": "f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f",
+                "reference": "f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f",
+                "shasum": ""
+            },
+            "require": {
+                "krowinski/bcmath-extended": "^4.2",
+                "nesbot/carbon": "^2.11",
+                "php": "^7.2",
+                "symfony/polyfill-php73": "^1.10"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "kylekatarnls/multi-tester": "^1.1",
+                "nunomaduro/collision": "^3.0",
+                "phpunit/phpunit": "^8.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\": "src/"
+                },
+                "files": [
+                    "src/bootstrap.php",
+                    "src/Helpers/Constants.php",
+                    "src/Helpers/Strings/Constants.php",
+                    "src/Helpers/functions.php",
+                    "src/Helpers/numeric/numeric.php",
+                    "src/Helpers/time/time.php",
+                    "src/Helpers/array/array.php",
+                    "src/Helpers/string/string.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP helpers functions",
+            "keywords": [
+                "array",
+                "first",
+                "format",
+                "private",
+                "protected",
+                "string",
+                "trim",
+                "unset",
+                "wrap",
+                "zeros"
+            ],
+            "time": "2019-04-24T10:41:02+00:00"
+        },
         {
             "name": "alecrabbit/php-traits",
             "version": "0.3.2",
@@ -270,6 +332,63 @@
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
             "time": "2019-05-17T18:49:15+00:00"
+        },
+        {
+            "name": "krowinski/bcmath-extended",
+            "version": "4.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krowinski/bcmath-extended.git",
+                "reference": "d07e18ca3050b872f04bc1cf5a3b8a3b591c6309"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krowinski/bcmath-extended/zipball/d07e18ca3050b872f04bc1cf5a3b8a3b591c6309",
+                "reference": "d07e18ca3050b872f04bc1cf5a3b8a3b591c6309",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "php": ">=5.4",
+                "phpunit/phpunit": "^4.8|^5.7|^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BCMathExtended\\": "src/BCMathExtended/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kacper Rowiński",
+                    "email": "kacper.rowinski@gmail.com"
+                }
+            ],
+            "description": "Extends php BCMath lib for missing functions like floor, ceil, round, abs, min, max, rand for big numbers. Also wraps existing BCMath functions. (more http://php.net/manual/en/book.bc.php) Supports scientific notation.s",
+            "keywords": [
+                "Arbitrary-precision",
+                "abs",
+                "bc",
+                "bcmath",
+                "bignumber",
+                "ceil",
+                "complex-numbers",
+                "floor",
+                "math",
+                "php",
+                "precision",
+                "rand",
+                "round",
+                "scientific-notation"
+            ],
+            "time": "2019-04-15T09:15:39+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -552,6 +671,64 @@
             "keywords": [
                 "compatibility",
                 "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-02-06T07:57:58+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php73",
+            "version": "v1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php73.git",
+                "reference": "d1fb4abcc0c47be136208ad9d68bf59f1ee17abd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/d1fb4abcc0c47be136208ad9d68bf59f1ee17abd",
+                "reference": "d1fb4abcc0c47be136208ad9d68bf59f1ee17abd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php73\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
                 "polyfill",
                 "portable",
                 "shim"

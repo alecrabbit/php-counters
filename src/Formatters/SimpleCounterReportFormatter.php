@@ -9,6 +9,6 @@ class SimpleCounterReportFormatter extends AbstractFormatter
 {
     public function format(Formattable $formattable): string
     {
-        return get_class($formattable);
+        return var_export($formattable->getData(), true);
     }
 }

@@ -5,6 +5,7 @@ namespace AlecRabbit\Reports;
 use AlecRabbit\Counters\SimpleCounter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
+use function AlecRabbit\typeOf;
 
 class SimpleCounterReport extends AbstractCounterReport
 {
@@ -12,15 +13,17 @@ class SimpleCounterReport extends AbstractCounterReport
     protected function extractDataFrom(AbstractReportable $reportable = null): array
     {
         if ($reportable instanceof SimpleCounter) {
-            return [];
-        }
-        if (is_object($reportable)) {
-            $type = get_class($reportable);
-        } else {
-            $type = gettype($reportable);
+            $data = [];
+            $data['name'] = $reportable->getName();
+            $data['value'] = $reportable->getValue();
+            $data['step'] = $reportable->getStep();
+            $data['started'] = $reportable->isStarted();
+            $data['initialValue'] = $reportable->getInitialValue();
+            $data['bumped'] = $reportable->getBumped();
+            return $data;
         }
         throw new \InvalidArgumentException(
-            'Expected ' . SimpleCounter::class . ' got ' . $type
+            'Expected ' . SimpleCounter::class . ' got ' . typeOf($reportable)
         );
     }
 }

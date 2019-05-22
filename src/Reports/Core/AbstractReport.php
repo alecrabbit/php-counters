@@ -9,8 +9,6 @@ abstract class AbstractReport extends Formattable
 {
     /** @var null|FormatterInterface */
     protected $formatter;
-    /** @var array */
-    protected $data;
 
     public function __construct(FormatterInterface $formatter = null, AbstractReportable $reportable = null)
     {
