@@ -2,7 +2,18 @@
 
 namespace AlecRabbit\Formatters\Contracts;
 
+use AlecRabbit\Formatters\Core\Formattable;
+
 interface FormatterInterface
 {
-    public function format(): string;
+    /**
+     * @param int|null $options
+     */
+    public function __construct(?int $options = null);
+
+    /**
+     * @param Formattable $data
+     * @return string
+     */
+    public function format(Formattable $data): string;
 }

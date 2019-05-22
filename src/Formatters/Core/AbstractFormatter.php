@@ -6,8 +6,19 @@ use AlecRabbit\Formatters\Contracts\FormatterInterface;
 
 abstract class AbstractFormatter implements FormatterInterface
 {
-    public function format(): string
+    /** {@inheritDoc} */
+    public function __construct(?int $options = null)
     {
-        return '<empty>';
+    }
+
+    /** {@inheritDoc} */
+    public function format(Formattable $formattable): string
+    {
+        return
+            sprintf(
+                '[%s]: got %s',
+                get_class($this),
+                get_class($formattable)
+            );
     }
 }

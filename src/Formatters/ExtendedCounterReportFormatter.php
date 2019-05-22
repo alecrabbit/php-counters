@@ -2,12 +2,6 @@
 
 namespace AlecRabbit\Formatters;
 
-use AlecRabbit\Formatters\Core\AbstractFormatter;
-
-class ExtendedCounterReportFormatter extends AbstractFormatter
+class ExtendedCounterReportFormatter extends SimpleCounterReportFormatter
 {
-    public function format(): string
-    {
-        return get_class($this);
-    }
 }

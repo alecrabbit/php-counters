@@ -2,13 +2,12 @@
 
 namespace AlecRabbit\Formatters;
 
-use AlecRabbit\Formatters\Core\AbstractFormatter;
 use AlecRabbit\Formatters\Core\Formattable;
 
-class SimpleCounterReportFormatter extends AbstractFormatter
+class ColoredSimpleCounterReportFormatter extends SimpleCounterReportFormatter
 {
     public function format(Formattable $formattable): string
     {
-        return get_class($formattable);
+        return 'colored:' . parent::format($formattable);
     }
 }

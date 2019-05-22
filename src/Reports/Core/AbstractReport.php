@@ -3,8 +3,9 @@
 namespace AlecRabbit\Reports\Core;
 
 use AlecRabbit\Formatters\Contracts\FormatterInterface;
+use AlecRabbit\Formatters\Core\Formattable;
 
-abstract class AbstractReport
+abstract class AbstractReport extends Formattable
 {
     /** @var null|FormatterInterface */
     protected $formatter;
@@ -17,9 +18,9 @@ abstract class AbstractReport
     public function __toString()
     {
         if ($this->formatter instanceof FormatterInterface) {
-            return $this->formatter->format();
+            return $this->formatter->format($this);
         }
-        return 'no formatter set';
+        return 'ERROR: no formatter';
     }
 
     /**
