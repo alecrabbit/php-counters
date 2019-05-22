@@ -4,8 +4,104 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c70d3c9284b7cd1d2e2b15147258c9c0",
+    "content-hash": "1cfef089290e79264307b2336a84bb52",
     "packages": [
+        {
+            "name": "alecrabbit/php-cli-tools",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-cli-tools.git",
+                "reference": "ec7c8831baa3ce608f75d2ea1c2d13f5f20c33b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-cli-tools/zipball/ec7c8831baa3ce608f75d2ea1c2d13f5f20c33b3",
+                "reference": "ec7c8831baa3ce608f75d2ea1c2d13f5f20c33b3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "alecrabbit/php-helpers": "^0.5.2",
+                "nunomaduro/collision": "^3.0",
+                "phpunit/phpunit": "^8.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\Cli\\Tools\\": "src\\Cli\\Tools"
+                },
+                "files": [
+                    "src/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "CLI tools for php.",
+            "keywords": [
+                "ansi",
+                "cli",
+                "console",
+                "control",
+                "height",
+                "terminal",
+                "title",
+                "width"
+            ],
+            "time": "2019-04-17T10:15:51+00:00"
+        },
+        {
+            "name": "alecrabbit/php-console-colour",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-console-colour.git",
+                "reference": "48f1cd44e93fc4b61956da3554cfa0c370630a97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-console-colour/zipball/48f1cd44e93fc4b61956da3554cfa0c370630a97",
+                "reference": "48f1cd44e93fc4b61956da3554cfa0c370630a97",
+                "shasum": ""
+            },
+            "require": {
+                "alecrabbit/php-cli-tools": "^0.0.1",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "alecrabbit/php-helpers": "^0.5",
+                "nunomaduro/collision": "^3.0",
+                "phpunit/phpunit": "^8.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Helps to do colored console output.",
+            "keywords": [
+                "ansi",
+                "color",
+                "colour",
+                "console",
+                "height",
+                "output",
+                "terminal",
+                "width"
+            ],
+            "time": "2019-04-19T12:39:50+00:00"
+        },
         {
             "name": "alecrabbit/php-helpers",
             "version": "0.5.9",

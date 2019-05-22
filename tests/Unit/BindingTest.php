@@ -12,6 +12,7 @@ use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\ExtendedCounterReport;
 use AlecRabbit\Reports\SimpleCounterReport;
+use AlecRabbit\Tests\Helper;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use PHPUnit\Framework\TestCase;
@@ -31,7 +32,7 @@ class BindingTest extends TestCase
             $counterClass,
             $reportClass,
             $formatterClass,
-            $result
+            $expectedResult
         ] = $values;
         if ($resetContainer) {
             Container::setInstance();
@@ -46,8 +47,8 @@ class BindingTest extends TestCase
         /** @var AbstractCounterReport $counterReport */
         $this->assertInstanceOf($counterClass, $counterReport->getReportable());
         $str = (string)$counterReport;
-        $this->assertSame($result, $str);
-//        dump($result, $str);
+        $this->assertSame($expectedResult, Helper::stripEscape($str));
+//        dump($expectedResult, $str);
     }
 
     public function instancesDataProvider(): array
@@ -59,7 +60,7 @@ class BindingTest extends TestCase
                     SimpleCounter::class,
                     SimpleCounterReport::class,
                     SimpleCounterReportFormatter::class,
-                    SimpleCounterReport::class,
+                    'Counter: 0',
                 ],
             ],
             [
@@ -68,7 +69,7 @@ class BindingTest extends TestCase
                     ExtendedCounter::class,
                     ExtendedCounterReport::class,
                     ExtendedCounterReportFormatter::class,
-                    ExtendedCounterReport::class,
+                    'Counter: 0',
                 ],
             ],
             [
@@ -77,7 +78,7 @@ class BindingTest extends TestCase
                     SimpleCounter::class,
                     SimpleCounterReport::class,
                     ColoredSimpleCounterReportFormatter::class,
-                    'colored:' . SimpleCounterReport::class,
+                    'Counter: \033[96m0\033[0m',
                 ],
             ],
             [
@@ -86,7 +87,7 @@ class BindingTest extends TestCase
                     ExtendedCounter::class,
                     ExtendedCounterReport::class,
                     ColoredExtendedCounterReportFormatter::class,
-                    'colored:' . ExtendedCounterReport::class,
+                    'Counter: \033[96m0\033[0m',
                 ],
             ],
         ];

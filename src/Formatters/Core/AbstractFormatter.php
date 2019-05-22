@@ -25,4 +25,15 @@ abstract class AbstractFormatter implements FormatterInterface
                 get_class($formattable)
             );
     }
+
+    /**
+     * @param object $data
+     * @param string $class
+     * @return string
+     */
+    protected function errorMessage(object $data, string $class): string
+    {
+        return
+            '[' . get_class($this) . '] ERROR: ' . $class . ' expected, ' . get_class($data) . ' given.';
+    }
 }
