@@ -11,13 +11,13 @@ use Illuminate\Container\Container;
 abstract class AbstractReportable
 {
     /** @var string */
-    protected $formatterClass;
-    /** @var string */
     protected $reportClass;
+    /** @var string */
+    protected $formatterClass;
 
     public function __construct()
     {
-        $this->setDefaultBindings();
+        $this->setBindings();
     }
 
     /**
@@ -25,43 +25,40 @@ abstract class AbstractReportable
      */
     public function setFormatter($formatter): void
     {
-        $this->setDependencies($this->reportClass, FormatterInterface::class, $formatter);
+        $this->setReportFormatterDependencies($this->reportClass, FormatterInterface::class, $formatter);
     }
 
-    protected function setDefaultBindings(string $reportClass = null, string $formatterClass = null): void
+    protected function setBindings(string $reportClass = null, string $formatterClass = null): void
     {
         $this->reportClass = $reportClass ?? DefaultReport::class;
         $this->formatterClass = $formatterClass ?? DefaultFormatter::class;
-        $this->setDependencies(
+        $this->setReportFormatterDependencies(
             $this->reportClass,
             FormatterInterface::class,
             $this->formatterClass
         );
     }
 
-
     /**
-     * @param string $when
-     * @param string $needs
-     * @param AbstractFormatter|string|\Closure $give
+     * @param string $reportClass
+     * @param string $formatterClass
+     * @param AbstractFormatter|string|\Closure $formatter
      */
-    protected function setDependencies(string $when, string $needs, $give): void
+    protected function setReportFormatterDependencies(string $reportClass, string $formatterClass, $formatter): void
     {
-        if ($give instanceof AbstractFormatter) {
-            $give = static function () use ($give): AbstractFormatter {
-                return $give;
+        if ($formatter instanceof AbstractFormatter) {
+            $formatter = static function () use ($formatter): AbstractFormatter {
+                return $formatter;
             };
         }
         Container::getInstance()
-            ->when($when)
-            ->needs($needs)
-            ->give($give);
+            ->when($reportClass)
+            ->needs($formatterClass)
+            ->give($formatter);
     }
 
-    public function report(): AbstractCounterReport
+    public function report()
     {
-        return Container::getInstance()->make($this->reportClass, ['counter' => $this]);
+        return Container::getInstance()->make($this->reportClass);
     }
-
-
 }

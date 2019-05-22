@@ -8,10 +8,11 @@ use AlecRabbit\Reports\SimpleCounterReport;
 
 class SimpleCounter extends AbstractCounter
 {
-    public function __construct()
+    /** {@inheritDoc} */
+    public function __construct(?string $name = null, ?int $step = null, int $initialValue = 0)
     {
-        parent::__construct();
-        $this->setDefaultBindings(
+        parent::__construct($name, $step, $initialValue);
+        $this->setBindings(
             SimpleCounterReport::class,
             SimpleCounterReportFormatter::class);
     }

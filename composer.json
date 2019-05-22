@@ -4,6 +4,7 @@
   "type": "library",
   "require": {
     "php": ">=7.2",
+    "alecrabbit/php-traits": "^0.3",
     "illuminate/container": "^5.8"
   },
   "require-dev": {
