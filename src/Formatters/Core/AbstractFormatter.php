@@ -3,6 +3,7 @@
 namespace AlecRabbit\Formatters\Core;
 
 use AlecRabbit\Formatters\Contracts\FormatterInterface;
+use AlecRabbit\Reports\DefaultReport;
 
 abstract class AbstractFormatter implements FormatterInterface
 {
@@ -18,12 +19,15 @@ abstract class AbstractFormatter implements FormatterInterface
     /** {@inheritDoc} */
     public function format(Formattable $formattable): string
     {
-        return
-            sprintf(
-                '[%s]: got %s',
-                get_class($this),
-                get_class($formattable)
-            );
+        if ($formattable instanceof DefaultReport) {
+            return
+                sprintf(
+                    '[%s]: got %s',
+                    get_class($this),
+                    get_class($formattable)
+                );
+        }
+        return $this->errorMessage($formattable, DefaultReport::class);
     }
 
     /**
