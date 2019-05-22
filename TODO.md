@@ -1,4 +1,4 @@
-### alecrabbit/php-experiment 
+### alecrabbit/php-counters 
 
 - [ ] <add new item>
 --- 

@@ -1,2 +1,2 @@
-# alecrabbit/php-experiment 
+# alecrabbit/php-counters 
 ### Awesome package description
