@@ -3,6 +3,7 @@
 namespace AlecRabbit\Formatters\Core;
 
 use AlecRabbit\Formatters\Contracts\FormatterInterface;
+use AlecRabbit\Reports\Core\Formattable;
 use AlecRabbit\Reports\DefaultReport;
 
 abstract class AbstractFormatter implements FormatterInterface

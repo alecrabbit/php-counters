@@ -5,31 +5,26 @@ namespace AlecRabbit\Reports;
 use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
-use function AlecRabbit\typeOf;
 
 class ExtendedCounterReport extends AbstractCounterReport
 {
     /** {@inheritDoc} */
-    protected function extractDataFrom(AbstractReportable $reportable = null): array
+    protected function extractDataFrom(AbstractReportable $reportable = null): void
     {
+        $this->data = [];
         if ($reportable instanceof ExtendedCounter) {
-            $data = [];
-            $data['name'] = $reportable->getName();
-            $data['value'] = $reportable->getValue();
-            $data['step'] = $reportable->getStep();
-            $data['started'] = $reportable->isStarted();
-            $data['initialValue'] = $reportable->getInitialValue();
-            $data['bumped'] = $reportable->getBumped();
-            $data['max'] = $reportable->getMax();
-            $data['min'] = $reportable->getMin();
-            $data['path'] = $reportable->getPath();
-            $data['length'] = $reportable->getLength();
-            $data['diff'] = $reportable->getDiff();
-            $data['bumpedBack'] = $reportable->getBumpedBack();
-            return $data;
+            $this->data['name'] = $reportable->getName();
+            $this->data['value'] = $reportable->getValue();
+            $this->data['step'] = $reportable->getStep();
+            $this->data['started'] = $reportable->isStarted();
+            $this->data['initialValue'] = $reportable->getInitialValue();
+            $this->data['bumped'] = $reportable->getBumped();
+            $this->data['max'] = $reportable->getMax();
+            $this->data['min'] = $reportable->getMin();
+            $this->data['path'] = $reportable->getPath();
+            $this->data['length'] = $reportable->getLength();
+            $this->data['diff'] = $reportable->getDiff();
+            $this->data['bumpedBack'] = $reportable->getBumpedBack();
         }
-        throw new \InvalidArgumentException(
-            'Expected ' . ExtendedCounter::class . ' got ' . typeOf($reportable)
-        );
     }
 }

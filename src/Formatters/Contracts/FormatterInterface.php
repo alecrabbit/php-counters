@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Formatters\Contracts;
 
-use AlecRabbit\Formatters\Core\Formattable;
+use AlecRabbit\Reports\Core\Formattable;
 
 interface FormatterInterface
 {

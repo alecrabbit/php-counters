@@ -3,6 +3,7 @@
 namespace AlecRabbit\Tests\Counters;
 
 use AlecRabbit\Counters\SimpleCounter;
+use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use PHPUnit\Framework\TestCase;
 use const AlecRabbit\Traits\Constants\DEFAULT_NAME;
 
@@ -42,6 +43,21 @@ class SimpleCounterTest extends TestCase
         $this->assertEquals(4, $c->getValue());
         $this->expectException(\RuntimeException::class);
         $c->setStep(2);
+    }
+
+    /**
+     * @test
+     * @throws \Exception
+     */
+    public function simpleCounterSetFormatter(): void
+    {
+        $c = new SimpleCounter();
+        $c->setStep(2);
+        $c->bump(2);
+        $this->assertEquals(4, $c->getValue());
+        $formatter = new SimpleCounterReportFormatter();
+        $c->setFormatter($formatter);
+        $this->assertSame($formatter, $c->report()->getFormatter());
     }
 
     /**
@@ -109,10 +125,10 @@ class SimpleCounterTest extends TestCase
         ];
     }
 
-    public function simpleCounterForExceptions(): array
-    {
-        return [
-            [],
-        ];
-    }
+//    public function simpleCounterForExceptions(): array
+//    {
+//        return [
+//            [],
+//        ];
+//    }
 }

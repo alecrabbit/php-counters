@@ -3,7 +3,7 @@
 namespace AlecRabbit\Formatters;
 
 use AlecRabbit\Counters\Contracts\CounterStrings;
-use AlecRabbit\Formatters\Core\Formattable;
+use AlecRabbit\Reports\Core\Formattable;
 use AlecRabbit\Reports\ExtendedCounterReport;
 use const AlecRabbit\Traits\Constants\DEFAULT_NAME;
 
