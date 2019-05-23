@@ -41,5 +41,4 @@ abstract class AbstractReport extends Formattable
     {
         return $this->reportable;
     }
-
 }

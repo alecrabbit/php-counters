@@ -17,5 +17,4 @@ abstract class AbstractCounterReport extends AbstractReport
 //        $this->reportable = $reportable;
 //        parent::__construct($formatter, $reportable);
 //    }
-
 }
