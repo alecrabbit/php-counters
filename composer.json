@@ -8,6 +8,7 @@
     "alecrabbit/php-console-colour": "^0.5",
     "alecrabbit/php-helpers": "^0.5",
     "alecrabbit/php-traits": "^0.3",
+    "alecrabbit/php-reports": "dev-develop",
     "illuminate/container": "^5.8"
   },
   "require-dev": {

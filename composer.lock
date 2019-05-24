@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a13f5fcd867fd91118e65cbd91e654b6",
+    "content-hash": "931709a8118930f605b562e646efde53",
     "packages": [
         {
             "name": "alecrabbit/php-cli-tools",
@@ -104,16 +104,16 @@
         },
         {
             "name": "alecrabbit/php-helpers",
-            "version": "0.5.9",
+            "version": "0.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-helpers.git",
-                "reference": "f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f"
+                "reference": "41a056a0b1ca42389a21cd5ec696c0dd107c6c37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f",
-                "reference": "f0b52eb8fdbabc0149c4bd6f7fcbe63e9b6ee19f",
+                "url": "https://api.github.com/repos/alecrabbit/php-helpers/zipball/41a056a0b1ca42389a21cd5ec696c0dd107c6c37",
+                "reference": "41a056a0b1ca42389a21cd5ec696c0dd107c6c37",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +162,53 @@
                 "wrap",
                 "zeros"
             ],
-            "time": "2019-04-24T10:41:02+00:00"
+            "time": "2019-05-23T19:31:39+00:00"
+        },
+        {
+            "name": "alecrabbit/php-reports",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-reports.git",
+                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/af1a536f3d6b15e483e36886095aa621f629b5ac",
+                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "^5.8",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "kylekatarnls/multi-tester": "^1.1",
+                "nunomaduro/collision": "^3.0",
+                "phpunit/phpunit": "^8.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\Reports\\": "src\\Reports",
+                    "AlecRabbit\\Formatters\\": "src\\Formatters"
+                },
+                "files": [
+                    "src/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP reports prototypes :)",
+            "keywords": [
+                "formatters",
+                "php",
+                "reports"
+            ],
+            "time": "2019-05-23T19:29:21+00:00"
         },
         {
             "name": "alecrabbit/php-traits",
@@ -2847,7 +2893,9 @@
     ],
     "aliases": [],
     "minimum-stability": "beta",
-    "stability-flags": [],
+    "stability-flags": {
+        "alecrabbit/php-reports": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

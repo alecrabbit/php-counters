@@ -2,8 +2,8 @@
 
 namespace AlecRabbit\Tests\Counters;
 
-use AlecRabbit\Counters\Contracts\CounterStrings;
 use AlecRabbit\Counters\SimpleCounter;
+use AlecRabbit\Formatters\Contracts\CounterStrings;
 use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use AlecRabbit\Reports\SimpleCounterReport;
 use PHPUnit\Framework\TestCase;

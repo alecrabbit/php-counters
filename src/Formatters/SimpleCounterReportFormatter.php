@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Formatters;
 
-use AlecRabbit\Counters\Contracts\CounterStrings;
+use AlecRabbit\Formatters\Contracts\CounterStrings;
 use AlecRabbit\Formatters\Core\AbstractFormatter;
 use AlecRabbit\Reports\Core\Formattable;
 use AlecRabbit\Reports\SimpleCounterReport;

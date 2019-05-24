@@ -3,7 +3,7 @@
 namespace AlecRabbit\Formatters;
 
 use AlecRabbit\ConsoleColour\Themes;
-use AlecRabbit\Counters\Contracts\CounterStrings;
+use AlecRabbit\Formatters\Contracts\CounterStrings;
 
 class ColoredSimpleCounterReportFormatter extends SimpleCounterReportFormatter
 {
