@@ -11,36 +11,6 @@ use const AlecRabbit\Traits\Constants\DEFAULT_NAME;
 
 class SimpleCounterReportFormatterTest extends TestCase
 {
-//    /**
-//     * @test
-//     * @throws \Exception
-//     */
-//    public function wrongReport(): void
-//    {
-//        $formatter = new SimpleCounterReportFormatter();
-//        $wrongReport = new class extends AbstractReport
-//        {
-//            /**
-//             * @return string
-//             */
-//            public function __toString(): string
-//            {
-//                return '';
-//            }
-//
-//            /**
-//             * @param ReportableInterface $reportable
-//             * @return ReportInterface
-//             */
-//            public function buildOn(ReportableInterface $reportable): ReportInterface
-//            {
-//                return $this;
-//            }
-//        };
-//        $this->expectException(\RuntimeException::class);
-//        $formatter->format($wrongReport);
-//    }
-
     /** @test */
     public function correctReport(): void
     {
