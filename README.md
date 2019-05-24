@@ -1,5 +1,5 @@
 # 🧮 PHP Counters
-### Awesome package description
+### Various counters
 
 [![PHP Version](https://img.shields.io/packagist/php-v/alecrabbit/php-counters.svg)](https://php.net)
 [![Build Status](https://travis-ci.org/alecrabbit/php-counters.svg?branch=master)](https://travis-ci.org/alecrabbit/php-counters)
