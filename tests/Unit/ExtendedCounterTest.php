@@ -10,7 +10,7 @@ class ExtendedCounterTest extends TestCase
 {
     /**
      * @test
-     * @dataProvider simpleCounterInstanceDataProvider
+     * @dataProvider extendedCounterInstanceDataProvider
      * @param array $expected
      * @param array $params
      * @throws \Exception
@@ -45,7 +45,7 @@ class ExtendedCounterTest extends TestCase
     /**
      * @return array
      */
-    public function simpleCounterInstanceDataProvider(): array
+    public function extendedCounterInstanceDataProvider(): array
     {
         $pop = 'pop';
         $name = 'name';
