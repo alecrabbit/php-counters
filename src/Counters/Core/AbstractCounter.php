@@ -3,9 +3,7 @@
 namespace AlecRabbit\Counters\Core;
 
 use AlecRabbit\Counters\Core\Traits\SimpleCounterFields;
-use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
-use Illuminate\Container\Container;
 
 abstract class AbstractCounter extends AbstractReportable
 {
@@ -89,7 +87,7 @@ abstract class AbstractCounter extends AbstractReportable
             $this->start();
         }
         $this->value += $times * $this->step;
-        $this->bumped++;
+        $this->bumped += $times;
         return
             $this->value;
     }

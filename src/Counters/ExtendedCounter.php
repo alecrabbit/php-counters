@@ -67,10 +67,10 @@ class ExtendedCounter extends SimpleCounter
         $this->length += $times * $this->step;
         if ($forward) {
             $this->value += $times * $this->step;
-            $this->bumped++;
+            $this->bumped += $times;
         } else {
             $this->value -= $times * $this->step;
-            $this->bumpedBack++;
+            $this->bumpedBack += $times;
         }
         $this->updateExtendedValues();
         return
