@@ -14,7 +14,10 @@ abstract class Formattable
         $this->formatter = $formatter;
     }
 
-    public function __toString()
+    /**
+     * @return string
+     */
+    public function __toString(): string
     {
         if ($this->formatter instanceof FormatterInterface) {
             return $this->formatter->format($this);

@@ -3,11 +3,13 @@
 namespace AlecRabbit\Reports\Core;
 
 use AlecRabbit\Formatters\Contracts\FormatterInterface;
+use AlecRabbit\Reports\Contracts\ReportInterface;
 
-abstract class AbstractReport extends Formattable
+abstract class AbstractReport extends Formattable implements ReportInterface
 {
     /** @var array */
     protected $data;
+
     /** @var null|AbstractReportable */
     protected $reportable;
 

@@ -5,11 +5,13 @@ namespace AlecRabbit\Reports\Core;
 use AlecRabbit\Formatters\Contracts\FormatterInterface;
 use AlecRabbit\Formatters\Core\AbstractFormatter;
 use AlecRabbit\Formatters\DefaultFormatter;
+use AlecRabbit\Reports\Contracts\ReportableInterface;
+use AlecRabbit\Reports\Contracts\ReportInterface;
 use AlecRabbit\Reports\DefaultReport;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\BindingResolutionException;
 
-abstract class AbstractReportable
+abstract class AbstractReportable implements ReportableInterface
 {
     /** @var string */
     protected $reportClass;
@@ -65,7 +67,7 @@ abstract class AbstractReportable
      * @throws BindingResolutionException
      *
      */
-    public function report()
+    public function report(): ReportInterface
     {
         return Container::getInstance()->make($this->reportClass, ['reportable' => $this]);
     }
