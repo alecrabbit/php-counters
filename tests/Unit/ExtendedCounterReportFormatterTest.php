@@ -2,22 +2,25 @@
 
 namespace AlecRabbit\Tests\Counters;
 
+use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Counters\SimpleCounter;
 use AlecRabbit\Formatters\Contracts\CounterStrings;
+use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
 use AlecRabbit\Formatters\SimpleCounterReportFormatter;
+use AlecRabbit\Reports\ExtendedCounterReport;
 use AlecRabbit\Reports\SimpleCounterReport;
 use AlecRabbit\Tests\WrongFormattable;
 use PHPUnit\Framework\TestCase;
 use const AlecRabbit\Traits\Constants\DEFAULT_NAME;
 
-class SimpleCounterReportFormatterTest extends TestCase
+class ExtendedCounterReportFormatterTest extends TestCase
 {
     /** @test */
     public function correctReport(): void
     {
-        $formatter = new SimpleCounterReportFormatter();
-        $counter = new SimpleCounter();
-        $counterReport = new SimpleCounterReport($formatter, $counter);
+        $formatter = new ExtendedCounterReportFormatter();
+        $counter = new ExtendedCounter();
+        $counterReport = new ExtendedCounterReport($formatter, $counter);
         $str = $formatter->format($counterReport);
         $this->assertStringContainsString(CounterStrings::COUNTER, $str);
         $this->assertEquals(CounterStrings::COUNTER . ': 0', $str);
@@ -26,12 +29,12 @@ class SimpleCounterReportFormatterTest extends TestCase
     /** @test */
     public function wrongReport(): void
     {
-        $formatter = new SimpleCounterReportFormatter();
+        $formatter = new ExtendedCounterReportFormatter();
         $wrongFormattable = new WrongFormattable();
         $str = $formatter->format($wrongFormattable);
         $this->assertSame(
-            '[AlecRabbit\Formatters\SimpleCounterReportFormatter]' .
-            ' ERROR: AlecRabbit\Reports\SimpleCounterReport expected, AlecRabbit\Tests\WrongFormattable given.',
+            '[AlecRabbit\Formatters\ExtendedCounterReportFormatter]' .
+            ' ERROR: AlecRabbit\Reports\ExtendedCounterReport expected, AlecRabbit\Tests\WrongFormattable given.',
             $str
         );
     }
@@ -42,10 +45,10 @@ class SimpleCounterReportFormatterTest extends TestCase
      */
     public function counterReportDefault(): void
     {
-        $c = new SimpleCounter();
+        $c = new ExtendedCounter();
         /** @var SimpleCounterReport $report */
         $report = $c->report();
-        $this->assertInstanceOf(SimpleCounterReport::class, $report);
+        $this->assertInstanceOf(ExtendedCounterReport::class, $report);
         $str = (string)$report;
         $this->assertStringNotContainsString(DEFAULT_NAME, $str);
         $this->assertStringContainsString(CounterStrings::COUNTER, $str);
@@ -75,23 +78,23 @@ class SimpleCounterReportFormatterTest extends TestCase
     public function counterReportDefaultWithName(): void
     {
         $name = 'name';
-        $c = new SimpleCounter($name);
+        $c = new ExtendedCounter($name);
         /** @var SimpleCounterReport $report */
         $report = $c->report();
-        $this->assertInstanceOf(SimpleCounterReport::class, $report);
+        $this->assertInstanceOf(ExtendedCounterReport::class, $report);
         $str = (string)$report;
         $this->assertStringContainsString($name, $str);
         $this->assertStringContainsString(CounterStrings::COUNTER, $str);
         $this->assertStringContainsString(CounterStrings::VALUE, $str);
         $this->assertStringContainsString(CounterStrings::STEP, $str);
-        $this->assertStringNotContainsString(CounterStrings::DIFF, $str);
-        $this->assertStringNotContainsString(CounterStrings::PATH, $str);
-        $this->assertStringNotContainsString(CounterStrings::LENGTH, $str);
-        $this->assertStringNotContainsString(CounterStrings::MIN, $str);
-        $this->assertStringNotContainsString(CounterStrings::MAX, $str);
+        $this->assertStringContainsString(CounterStrings::DIFF, $str);
+        $this->assertStringContainsString(CounterStrings::PATH, $str);
+        $this->assertStringContainsString(CounterStrings::LENGTH, $str);
+        $this->assertStringContainsString(CounterStrings::MIN, $str);
+        $this->assertStringContainsString(CounterStrings::MAX, $str);
         $this->assertStringContainsString(CounterStrings::BUMPED, $str);
         $this->assertStringContainsString(CounterStrings::FORWARD, $str);
-        $this->assertStringNotContainsString(CounterStrings::BACKWARD, $str);
+        $this->assertStringContainsString(CounterStrings::BACKWARD, $str);
 
         $data = $report->getData();
         $this->assertEquals($name, $data['name']);
