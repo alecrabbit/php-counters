@@ -170,12 +170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alecrabbit/php-reports.git",
-                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac"
+                "reference": "cbe1a2336862eb228d8e176af712dc84017bb944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/af1a536f3d6b15e483e36886095aa621f629b5ac",
-                "reference": "af1a536f3d6b15e483e36886095aa621f629b5ac",
+                "url": "https://api.github.com/repos/alecrabbit/php-reports/zipball/cbe1a2336862eb228d8e176af712dc84017bb944",
+                "reference": "cbe1a2336862eb228d8e176af712dc84017bb944",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "php",
                 "reports"
             ],
-            "time": "2019-05-23T19:29:21+00:00"
+            "time": "2019-05-27T20:24:26+00:00"
         },
         {
             "name": "alecrabbit/php-traits",
@@ -2725,16 +2725,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v4.2.8",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "3c4084cb1537c0e2ad41aad622bbf55a44a5c9ce"
+                "reference": "2fd2ecf7913fb96f0c2e941ca15bb702184c6574"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3c4084cb1537c0e2ad41aad622bbf55a44a5c9ce",
-                "reference": "3c4084cb1537c0e2ad41aad622bbf55a44a5c9ce",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/2fd2ecf7913fb96f0c2e941ca15bb702184c6574",
+                "reference": "2fd2ecf7913fb96f0c2e941ca15bb702184c6574",
                 "shasum": ""
             },
             "require": {
@@ -2763,7 +2763,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -2797,7 +2797,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2019-05-01T12:55:36+00:00"
+            "time": "2019-05-01T12:55:49+00:00"
         },
         {
             "name": "theseer/tokenizer",
