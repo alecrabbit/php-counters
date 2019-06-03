@@ -7,3 +7,4 @@
 /.idea/
 /.eval/
 /.env
+/composer.lock
