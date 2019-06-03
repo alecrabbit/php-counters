@@ -6,7 +6,7 @@
   "require": {
     "php": ">=7.2",
     "alecrabbit/php-console-colour": "^0.5",
-    "alecrabbit/php-helpers": "^0.5",
+    "alecrabbit/php-helpers": "^0.5 || ^0.6",
     "alecrabbit/php-traits": "^0.3",
     "alecrabbit/php-reports": "dev-develop",
     "illuminate/container": "^5.8"
