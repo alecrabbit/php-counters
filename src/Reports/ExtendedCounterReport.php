@@ -2,29 +2,33 @@
 
 namespace AlecRabbit\Reports;
 
+use AlecRabbit\Counters\Core\Traits\ExtendedCounterFields;
+use AlecRabbit\Counters\Core\Traits\SimpleCounterFields;
 use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
 
 class ExtendedCounterReport extends AbstractCounterReport
 {
+    use SimpleCounterFields, ExtendedCounterFields;
+
     /** {@inheritDoc} */
     protected function extractDataFrom(AbstractReportable $reportable = null): void
     {
         $this->data = [];
         if ($reportable instanceof ExtendedCounter) {
-            $this->data['name'] = $reportable->getName();
-            $this->data['value'] = $reportable->getValue();
-            $this->data['step'] = $reportable->getStep();
-            $this->data['started'] = $reportable->isStarted();
-            $this->data['initialValue'] = $reportable->getInitialValue();
-            $this->data['bumped'] = $reportable->getBumped();
-            $this->data['max'] = $reportable->getMax();
-            $this->data['min'] = $reportable->getMin();
-            $this->data['path'] = $reportable->getPath();
-            $this->data['length'] = $reportable->getLength();
-            $this->data['diff'] = $reportable->getDiff();
-            $this->data['bumpedBack'] = $reportable->getBumpedBack();
+            $this->name = $this->data['name'] = $reportable->getName();
+            $this->value = $this->data['value'] = $reportable->getValue();
+            $this->step = $this->data['step'] = $reportable->getStep();
+            $this->started = $this->data['started'] = $reportable->isStarted();
+            $this->initialValue = $this->data['initialValue'] = $reportable->getInitialValue();
+            $this->bumped = $this->data['bumped'] = $reportable->getBumped();
+            $this->max = $this->data['max'] = $reportable->getMax();
+            $this->min = $this->data['min'] = $reportable->getMin();
+            $this->path = $this->data['path'] = $reportable->getPath();
+            $this->length = $this->data['length'] = $reportable->getLength();
+            $this->diff = $this->data['diff'] = $reportable->getDiff();
+            $this->bumpedBack = $this->data['bumpedBack'] = $reportable->getBumpedBack();
         }
     }
 }

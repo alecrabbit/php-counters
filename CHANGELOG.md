@@ -1,6 +1,15 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="0.1.4"></a>
+## [0.1.4] - 2019-06-17
+### Fix
+- .gitattributes file
+
+
+<a name="0.1.3"></a>
+## [0.1.3] - 2019-06-17
 ### Removed
 - Helper class
 
@@ -24,6 +33,8 @@
 - Merge pull request [#1](https://github.com/alecrabbit/php-counters/issues/1) from alecrabbit/dependabot/composer/phpunit/phpunit-8.1.6
 
 
-[Unreleased]: https://github.com/alecrabbit/php-counters/compare/0.1.2...HEAD
+[Unreleased]: https://github.com/alecrabbit/php-counters/compare/0.1.4...HEAD
+[0.1.4]: https://github.com/alecrabbit/php-counters/compare/0.1.3...0.1.4
+[0.1.3]: https://github.com/alecrabbit/php-counters/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/alecrabbit/php-counters/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/alecrabbit/php-counters/compare/0.1.0...0.1.1
