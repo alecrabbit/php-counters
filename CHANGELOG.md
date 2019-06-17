@@ -4,6 +4,9 @@
 ### Removed
 - Helper class
 
+### Updated
+- Changelog
+
 
 <a name="0.1.2"></a>
 ## [0.1.2] - 2019-06-03

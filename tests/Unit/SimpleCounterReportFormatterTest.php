@@ -6,7 +6,7 @@ use AlecRabbit\Counters\SimpleCounter;
 use AlecRabbit\Formatters\Contracts\CounterStrings;
 use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use AlecRabbit\Reports\SimpleCounterReport;
-use AlecRabbit\Tests\WrongFormattable;
+use AlecRabbit\Aux\WrongFormattable;
 use PHPUnit\Framework\TestCase;
 use const AlecRabbit\Traits\Constants\DEFAULT_NAME;
 
@@ -31,7 +31,7 @@ class SimpleCounterReportFormatterTest extends TestCase
         $str = $formatter->format($wrongFormattable);
         $this->assertSame(
             '[AlecRabbit\Formatters\SimpleCounterReportFormatter]' .
-            ' ERROR: AlecRabbit\Reports\SimpleCounterReport expected, AlecRabbit\Tests\WrongFormattable given.',
+            ' ERROR: AlecRabbit\Reports\SimpleCounterReport expected, AlecRabbit\Aux\WrongFormattable given.',
             $str
         );
     }

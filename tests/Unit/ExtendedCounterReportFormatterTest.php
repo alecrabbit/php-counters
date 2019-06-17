@@ -9,7 +9,7 @@ use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
 use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use AlecRabbit\Reports\ExtendedCounterReport;
 use AlecRabbit\Reports\SimpleCounterReport;
-use AlecRabbit\Tests\WrongFormattable;
+use AlecRabbit\Aux\WrongFormattable;
 use PHPUnit\Framework\TestCase;
 use const AlecRabbit\Traits\Constants\DEFAULT_NAME;
 
@@ -34,7 +34,7 @@ class ExtendedCounterReportFormatterTest extends TestCase
         $str = $formatter->format($wrongFormattable);
         $this->assertSame(
             '[AlecRabbit\Formatters\ExtendedCounterReportFormatter]' .
-            ' ERROR: AlecRabbit\Reports\ExtendedCounterReport expected, AlecRabbit\Tests\WrongFormattable given.',
+            ' ERROR: AlecRabbit\Reports\ExtendedCounterReport expected, AlecRabbit\Aux\WrongFormattable given.',
             $str
         );
     }
