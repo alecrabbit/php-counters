@@ -5,7 +5,7 @@
 - Helper class
 
 ### Updated
-- tests
+- Tests
 - Changelog
 
 
