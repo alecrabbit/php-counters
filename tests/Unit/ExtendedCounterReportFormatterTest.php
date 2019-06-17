@@ -2,14 +2,12 @@
 
 namespace AlecRabbit\Tests\Counters;
 
+use AlecRabbit\Aux\WrongFormattable;
 use AlecRabbit\Counters\ExtendedCounter;
-use AlecRabbit\Counters\SimpleCounter;
 use AlecRabbit\Formatters\Contracts\CounterStrings;
 use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
-use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use AlecRabbit\Reports\ExtendedCounterReport;
 use AlecRabbit\Reports\SimpleCounterReport;
-use AlecRabbit\Aux\WrongFormattable;
 use PHPUnit\Framework\TestCase;
 use const AlecRabbit\Traits\Constants\DEFAULT_NAME;
 
