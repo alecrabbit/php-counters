@@ -2,8 +2,8 @@ version: '3.2'
 
 services:
   &app-service app:
-    # https://github.com/alecrabbit/docker-php-cli-alpine-debug
-    image: dralec/php-cli-alpine-debug
+    # https://github.com/alecrabbit/docker-php73-cli-alpine-debug
+    image: dralec/php73-cli-alpine-debug
     hostname: *app-service
     user: "${USER_ID:-1000}:${GROUP_ID:-1000}" # Set variables in .env file
     volumes:

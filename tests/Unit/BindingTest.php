@@ -10,7 +10,6 @@ use AlecRabbit\Formatters\SimpleCounterReportFormatter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\ExtendedCounterReport;
 use AlecRabbit\Reports\SimpleCounterReport;
-use AlecRabbit\Tests\Helper;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use PHPUnit\Framework\TestCase;
@@ -45,7 +44,7 @@ class BindingTest extends TestCase
         /** @var AbstractCounterReport $counterReport */
         $this->assertInstanceOf($counterClass, $counterReport->getReportable());
         $str = (string)$counterReport;
-        $this->assertSame($expectedResult, Helper::stripEscape($str));
+        $this->assertSame($expectedResult, $str);
     }
 
     public function instancesDataProvider(): array
