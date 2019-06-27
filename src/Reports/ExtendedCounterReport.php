@@ -3,14 +3,13 @@
 namespace AlecRabbit\Reports;
 
 use AlecRabbit\Counters\Core\Traits\ExtendedCounterFields;
-use AlecRabbit\Counters\Core\Traits\SimpleCounterFields;
 use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
 
 class ExtendedCounterReport extends AbstractCounterReport
 {
-    use SimpleCounterFields, ExtendedCounterFields;
+    use ExtendedCounterFields;
 
     /** {@inheritDoc} */
     protected function extractDataFrom(AbstractReportable $reportable = null): void

@@ -2,15 +2,12 @@
 
 namespace AlecRabbit\Reports;
 
-use AlecRabbit\Counters\Core\Traits\SimpleCounterFields;
 use AlecRabbit\Counters\SimpleCounter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
 
 class SimpleCounterReport extends AbstractCounterReport
 {
-    use SimpleCounterFields;
-
     /** {@inheritDoc} */
     protected function extractDataFrom(AbstractReportable $reportable = null): void
     {
