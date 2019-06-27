@@ -1,6 +1,9 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Changed
+- internal class structure
+
 
 <a name="0.1.4"></a>
 ## [0.1.4] - 2019-06-17
