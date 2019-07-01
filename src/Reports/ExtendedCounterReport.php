@@ -7,6 +7,11 @@ use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
 
+/**
+ * Class ExtendedCounterReport
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class ExtendedCounterReport extends AbstractCounterReport
 {
     use ExtendedCounterFields;

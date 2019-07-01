@@ -6,6 +6,11 @@ use AlecRabbit\Counters\SimpleCounter;
 use AlecRabbit\Reports\Core\AbstractCounterReport;
 use AlecRabbit\Reports\Core\AbstractReportable;
 
+/**
+ * Class SimpleCounterReport
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class SimpleCounterReport extends AbstractCounterReport
 {
     /** {@inheritDoc} */
