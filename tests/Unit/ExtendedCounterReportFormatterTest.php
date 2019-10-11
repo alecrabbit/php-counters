@@ -2,7 +2,7 @@
 
 namespace AlecRabbit\Tests\Counters;
 
-use AlecRabbit\Aux\WrongFormattable;
+use AlecRabbit\Auxiliary\WrongFormattable;
 use AlecRabbit\Counters\ExtendedCounter;
 use AlecRabbit\Formatters\Contracts\CounterStrings;
 use AlecRabbit\Formatters\ExtendedCounterReportFormatter;
@@ -32,7 +32,7 @@ class ExtendedCounterReportFormatterTest extends TestCase
         $str = $formatter->format($wrongFormattable);
         $this->assertSame(
             '[AlecRabbit\Formatters\ExtendedCounterReportFormatter]' .
-            ' ERROR: AlecRabbit\Reports\ExtendedCounterReport expected, AlecRabbit\Aux\WrongFormattable given.',
+            ' ERROR: AlecRabbit\Reports\ExtendedCounterReport expected, AlecRabbit\Auxiliary\WrongFormattable given.',
             $str
         );
     }

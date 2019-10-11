@@ -8,3 +8,5 @@
 /.eval/
 /.env
 /composer.lock
+
+build/
