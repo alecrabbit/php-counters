@@ -7,8 +7,7 @@
     "php": ">=7.2",
     "alecrabbit/php-helpers": "^0.8",
     "alecrabbit/php-traits": "^0.3",
-    "alecrabbit/php-reports": "^0.3",
-    "illuminate/container": "^5.8 || ^6.0"
+    "alecrabbit/php-reports": "^0.3"
   },
   "require-dev": {
     "nunomaduro/collision": "^3.0",
